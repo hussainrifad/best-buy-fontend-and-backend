@@ -28,13 +28,15 @@ const client = new MongoClient(uri, {
 const run = async() => {
     
     try {
-        const dataBase = client.db('Train-e-tickets');
-        const trains = dataBase.collection('trains');
-        const stations = dataBase.collection('stations');
+        const productsDataBase = client.db('ema-john-ecomerce');
+        const bestBuyDataBase = client.db('Best-Buy');
 
-        app.get('/trains', async(req, res) => {
-            const result = await trains.find({}).toArray();
-            res.send(result)
+        const products = productsDataBase.collection('products');
+        const users = bestBuyDataBase.collection('users');
+
+        app.get('/products', async(req, res) => {
+            const allProducts = await products.find({}).toArray();
+            res.send(allProducts);
         })
 
         app.get('/', async(req, res) => {

@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom';
 
 const Main = () => {
     
-    const state = localStorage.getItem('darkModeState');
+    const state = JSON.parse(localStorage.getItem('darkModeState'));
     const [darkMode, setDarkMode] = useState(state);
 
     return (

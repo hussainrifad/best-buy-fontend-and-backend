@@ -1,7 +1,8 @@
 [
     {
         "name" : "Morning Express",
-        "routes" : [ "Rajshahi", "Rangpur", "Bogra", "Sirajgong", "Tangail", "Dhaka", "Brahmanbaria", "Feni", "chattogram"],
+        "start_from" : [ "Rajshahi", "Rangpur", "Bogra", "Sirajgong", "Tangail", "Dhaka", "Brahmanbaria", "Feni", "chattogram"],
+        "end_to" : [],
         "TrainId" : 100001,
         "capacity" : 1000,
         "isOff" : "Sat"

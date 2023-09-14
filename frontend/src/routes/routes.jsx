@@ -4,6 +4,9 @@ import Error from "../components/pages/Error";
 import Login from "../components/authentication/Login"
 import Signup from "../components/authentication/Signup";
 import Main from "../layout/Main";
+import Products from "../components/pages/Products";
+import GetStarted from "../components/pages/GetStarted";
+import Cart from "../components/pages/Cart";
 
 const routes = createBrowserRouter([
     {
@@ -21,6 +24,28 @@ const routes = createBrowserRouter([
             {
                 path: 'signup',
                 element: <Signup/>
+            },
+            {
+                path: '/products',
+                element: <Products/>
+            },
+            {
+                path: '/getstarted',
+                element: <GetStarted/>,
+                children: [
+                    {
+                        path: '/getstarted',
+                        element: <Login/>
+                    },
+                    {
+                        path: '/getstarted/signup',
+                        element: <Signup/>
+                    }
+                ]
+            },
+            {
+                path: '/cart',
+                element: <Cart/>
             }
         ]
     },
