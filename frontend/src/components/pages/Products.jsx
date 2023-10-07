@@ -20,7 +20,7 @@ const Products = () => {
         <section>
             <div className='p-4'>Filter</div>
             <div className='sm:p-4 sm:p-0 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3'>
-                {products.map(prod => <Product key={prod.id} prod={prod}></Product>)}
+                {products.map(prod => <Product key={prod._id} prod={prod}></Product>)}
             </div>
         </section>
     );

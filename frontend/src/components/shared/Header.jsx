@@ -7,6 +7,7 @@ import {AiOutlineShoppingCart} from 'react-icons/ai'
 // import { AuthContext } from '../../contexts/UserContext';
 import logo from '../../images/EB.png';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 
 const Header = ({setDarkMode}) => {
@@ -14,6 +15,7 @@ const Header = ({setDarkMode}) => {
     const darkModeButtonState = JSON.parse(localStorage.getItem('darkModeButton'));
     const [menuOpen, setMenuOpen] = useState(false);
     const [onButton, setOnbutton] = useState(darkModeButtonState);
+    const items = useSelector( state => state.myCart.cart);
 
     const handleDarkMode = (value) => {
         setOnbutton(value);
@@ -68,8 +70,11 @@ const Header = ({setDarkMode}) => {
                 <Link to='/getstarted' className="hover:text-green-800 block mt-4 md:inline-block md:mt-0 md:ml-6">
                     GET STARTED
                 </Link>
-                <Link to='/cart' className="text-2xl hover:text-green-800 block mt-4 md:inline-block md:mt-0 md:ml-6">
-                    <span><AiOutlineShoppingCart/></span>
+                <Link to='/cart' className="text-2xl flex hover:text-green-800 mt-4 md:mt-0 md:ml-6">
+                    <AiOutlineShoppingCart/>
+                    {
+                        items?.length > 0 && <sup className='block text-sm'>{items?.length}</sup>
+                    }
                 </Link>
                 
                 
